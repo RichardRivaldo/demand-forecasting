@@ -1,0 +1,12 @@
+version: "3"
+services:
+  app:
+    container_name: forecasting
+    build: ./
+    ports:
+      - 11005:8000 
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 8G
