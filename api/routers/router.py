@@ -17,7 +17,7 @@ async def forecast_demand(request: Request):
     try:
         menu_group = request.menu_group
         n_weeks = request.n_weeks
-        include_deals = request.include_deals
+        include_deals = request.include_deals if request.include_deals else False
 
         features_df = generate_features(menu_group, n_weeks, include_deals)
         result = forecast(features_df)
