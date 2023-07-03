@@ -10,8 +10,9 @@ API service for retail demand forecasting application with `XGBoost` and `FastAP
 
 1. The notebook in `experiments` directory contains experiment with the demand forecasting problem. Data manipulation is mostly done using `Pandas` and `Scikit-Learn`.
 2. Model used in the experiment is `XGBoost`, a gradient boosting algorithm that can be used for time-series problems, although it requires several preprocessing first. Done some research on another time-series models such as `ARIMA`, `SARIMAX`, `Prophet`, and `LSTM`, but decided to move with XGBoost, solely because of curiosity in purpose of making XGBoost work for time-series analysis.
-3. The services used to serve the model is built with `FastAPI` and `Uvicorn`. This is done as simple as saving all models needed for inferencing and mimicking the evaluation process on the notebook.
-4. The functionality is then made into an API that can be accessed through HTTP network protocol.
+3. Since we have daily time-series data, the implemented approach of the model itself is by doing daily forecast, and in the end, sum all of the demand forecasted to create a weekly forecast. Note that the forecast will always start at the starting date of the next week.
+4. The services used to serve the model is built with `FastAPI` and `Uvicorn`. This is done as simple as saving all models needed for inferencing and mimicking the evaluation process on the notebook.
+5. The functionality is then made into an API that can be accessed through HTTP network protocol.
 
 **The model is uploaded into the repository for simplicity sake. Read [Improvements](#improvements).**
 
